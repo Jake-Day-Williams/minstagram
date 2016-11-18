@@ -5,7 +5,7 @@
       = pluralize(@picture.errors.count, "correction")
       need to be made to this form.
       %ul
-        - @picture.errors.full_message.each do |msg|
+        - @picture.errors.full_messages.each do |msg|
           %li= msg
 
   .form-group
