@@ -7,6 +7,20 @@
   = csrf_meta_tags
 
 %body
+  %nav.navbar.navbar-default
+    .container
+      .navbar-brand= link_to "MINSTAGRAM", root_path
+      %ul.nav.navbar-nav.navbar-left
+
+        - if user_signed_in?
+          %li= link_to "Mint It", new_picture_path
+          %li= link_to "My Settings", edit_user_registration_path
+          %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+
+        - else
+          %li= link_to "Join", new_user_registration_path
+          %li= link_to "Login", new_user_session_path
+
   - flash.each do |name, msg|
     =content_tag :div, msg, class: "alert alert-info"
 
