@@ -1,6 +1,12 @@
-.col-md-6.col-md-offset-3
+.col-md-12
   #pics.transitions-enabled
     - @pictures.each do |picture|
       .box.panel.panel-default
         = link_to (image_tag picture.image.url), picture
-        %h2= link_to picture.title, picture
+        .col-md-10.col-md-offset-1
+          .div.pull-left
+            = link_to picture.title, picture
+          .div.pull-right
+            = link_to like_picture_path(picture), method: :put do
+              %span.glyphicon.glyphicon-thumbs-up
+              = picture.get_upvotes.size
