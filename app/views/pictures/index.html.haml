@@ -4,9 +4,9 @@
       .box.panel.panel-default
         = link_to (image_tag picture.image.url), picture
         .col-md-10.col-md-offset-1
-          .div.pull-left
+          .pull-left
             = link_to picture.title, picture
-          .div.pull-right
+          .pull-right
             = link_to like_picture_path(picture), method: :put do
               %span.glyphicon.glyphicon-thumbs-up
               = picture.get_upvotes.size
